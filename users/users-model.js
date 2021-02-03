@@ -45,8 +45,8 @@ function getUserItemById(user_id, item_id) {
         .select("user_items.id", "user_items.name", "user_items.price", "users.location", "users.username")
 }
 
-async function addUserItems(userId, data) {
-    const item = {user_id: userId, ...data}
-    const [id] = await db("user_items").insert(item)
-        return getUserItemsById(userId, id)
+async function addUserItems(userId, item) {
+    const data = {user_id: userId, ...item}
+    const [id] = await db("user_items").insert(data)
+    return getUserItemById(userId, id)
 }
