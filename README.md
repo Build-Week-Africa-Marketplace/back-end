@@ -21,9 +21,13 @@ GET all users: /users
   res: `[
     {
       "id": 1,
+      
       "username": "Ash",
+      
       "password": "$2a$10$XJG/IuU3heziRDVt82MuSuIx/IspMLMiUFK0wtFnOjqFdOaGWpNyK",
+      
       "location": "Pallet Town",
+      
       "owner": 1
     },
     {
