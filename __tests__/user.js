@@ -56,4 +56,17 @@ describe("users integration tests", () => {
         expect(res.body.name).toBe("apples")
     })
 
+    it("updates user item", async () => {
+        const res = await supertest(server).put("/users/1/items/1").send({name: "oranges"})
+        expect(res.statusCode).toBe(201)
+        expect(res.type).toBe("application/json")
+        expect(res.body.message).toBe("Item successfully updated.")
+    })
+
+    it("deletes user item", async () => {
+        const res = await supertest(server).delete("/users/1/items/1")
+        expect(res.statusCode).toBe(200)
+        expect(res.type).toBe("application/json")
+        expect(res.body.message).toBe("Item 1 was successfully deleted.")
+    })
 })
