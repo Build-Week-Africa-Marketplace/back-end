@@ -2,7 +2,7 @@
 
 https://build-week-africa-marketplace.herokuapp.com/
 
-Endpoints:
+# Endpoints
 
 POST register: /register
   req.body: {username: "", password: "", location: "", owner: bool}
