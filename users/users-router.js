@@ -97,23 +97,12 @@ router.get("/users/:id", async (req, res, next) => {
     }
 })
 
-router.get("/user_items", async (req, res, next) => {
+router.get("/users/:id/items", async (req, res, next) => {
     try {
-        const items = await Users.getUserItems()
-            return res.status(200).json(items)
+        res.json(await Users.getUserItems(req.params.id))
     } catch(err) {
         next(err)
     }
 })
-
-router.get("/users/:id/items"), async (req, res, next) => {
-    try {
-        const items = await Users.getUserItemsByUserId(req.params.id)
-            return res.status(200).json(items)
-    } catch(err) {
-        next(err)
-    }
-}
-
 
 module.exports = router

@@ -5,7 +5,6 @@ module.exports = {
     find,
     findById,
     findByUsername,
-    getUserItemsByUserId,
     getUserItems
 }
 
@@ -30,13 +29,9 @@ function findByUsername(username) {
         .first()
 }
 
-function getUserItems() {
+function getUserItems(id) {
     return db("user_items")
-}
-
-function getUserItemsByUserId(id) {
-    return db("user_items as i")
-        .join("users as u", "i.user_id", "u.id")
-        .where({user_id: id})
-        .select("i.id", "i.name", "i.price", "i.location", "u.username")
+        .innerJoin("users", "users.id", "user_items.user_id")
+        .where("user_items.user_id", id)
+        .select("user_items.id", "user_items.name", "user_items.price", "users.location", "users.username")
 }
