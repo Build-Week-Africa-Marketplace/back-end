@@ -18,7 +18,7 @@ https://build-week-africa-marketplace.herokuapp.com/
 | DELETE | /user/:id/items/:item_id     |  Deletes user item by user id and item id.                                                 |
 
 GET all users: /users
-  res: [
+  res: `[
     {
       "id": 1,
       "username": "Ash",
@@ -39,7 +39,7 @@ GET all users: /users
       "password": "$2a$10$BfRstjEtyP.kEzr7xxQ2pep73Gkgge0SYw3pNWJ1c/dn6g2nuL1FK",
       "location": "Cerulean City,",
       "owner": 1
-    }]
+    }]`
 
 GET user by id: /users/:id
   res:
