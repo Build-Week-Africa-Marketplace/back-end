@@ -9,20 +9,13 @@ https://build-week-africa-marketplace.herokuapp.com/
 | Method | Endpoint                     | Description                                                                                                                                                                 |
 | ------ | ---------------------------- | -------------------------------------------------------------------------------------------|
 | POST   | /register                    |  Creates new users. Req.body: {username: "", password: "", location: "", owner: bool}      |
-| POST   | /login                       |                                                                                            |
-| GET    | /users                       |                                                                                            |
-| GET    | /users/:id                   |                                                                                            |
-| GET    | /user/:id/items              |                                                                                            |
-| POST   | /user/:id/items              |                                                                                            |
-| GET    | /user/:id/items/:item_id     |                                                                                            |
-
-POST register: /register
-  req.body: {username: "", password: "", location: "", owner: bool}
-  res: {id: number, username: "", password: "", location: "", owner: bool}
-
-POST login: /login
-  req.body: {username: "", password: ""}
-  res: {message: `Welcome, ${username}`, token: ""}
+| POST   | /login                       |  Login user. Req.body: {username: "", password: ""}                                        |
+| GET    | /users                       |  Gets all users.                                                                           |
+| GET    | /users/:id                   |  Gets user by id.                                                                          |
+| GET    | /user/:id/items              |  Gets user items by user id.                                                               |
+| POST   | /user/:id/items              |  Adds user item.                                                                           |
+| GET    | /user/:id/items/:item_id     |  Gets user item by user id and item id.                                                    |
+| DELETE | /user/:id/items/:item_id     |  Deletes user item by user id and item id.                                                 |
 
 GET all users: /users
   res: [
@@ -57,11 +50,5 @@ GET user by id: /users/:id
       "location": "Pallet Town",
       "owner": 1
     }
-
-GET all user_items: /user_items
-
-GET user_items by user id: /users/user_items
-
-POST user_items 
 
 
