@@ -1,8 +1,14 @@
 # back-end
 
+# back-end url
+
 https://build-week-africa-marketplace.herokuapp.com/
 
 # Endpoints
+
+| Post register: | /register | #2 | |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269 | 254 |
 
 POST register: /register
   req.body: {username: "", password: "", location: "", owner: bool}
