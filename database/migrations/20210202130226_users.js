@@ -22,13 +22,13 @@ exports.up = async function(knex) {
           .notNull()
     })
   
-    await knex.schema.createTable("owner's items", (table) => {
+    await knex.schema.createTable("user_items", (table) => {
         table.increments("id")
         table.text("name")
           .notNull()
         table.text("price")
           .notNull()
-        table.integer("owner_id")
+        table.integer("user_id")
           .notNull()
           .references("id")
           .inTable("user")
