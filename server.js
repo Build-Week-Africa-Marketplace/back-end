@@ -1,5 +1,6 @@
 const express = require("express")
 const userRouter = require("./users/users-router")
+const itemsRouter = require("./items/items-router")
 
 const server = express()
 
@@ -9,5 +10,6 @@ server.get("/", (req, res) => {
 })
 
 server.use(userRouter)
+server.use(itemsRouter)
 
 module.exports = server
