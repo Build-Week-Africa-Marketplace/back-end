@@ -6,9 +6,15 @@ https://build-week-africa-marketplace.herokuapp.com/
 
 # Endpoints
 
-| Post register: | /register | #2 | |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269 | 254 |
+| Method | Endpoint                     | Description                                                                                                                                                                 |
+| ------ | ---------------------------- | -----------------------------------------------------------------------------------------------------|
+| POST   | /register                    |                                                                                                      |
+| POST   | /login                       |                                                                                                      |
+| GET    | /users                       |                                                                                                      |
+| GET    | /users/:id                   |                                                                                                      |
+| GET    | /user/:id/items              |                                                                                                      |
+| POST   | /user/:id/items              |                                                                                                      |
+| GET    | /user/:id/items/:item_id     |                                                                                                      |
 
 POST register: /register
   req.body: {username: "", password: "", location: "", owner: bool}
