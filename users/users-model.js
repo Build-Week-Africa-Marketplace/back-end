@@ -1,4 +1,3 @@
-const { innerJoin } = require("../database/config")
 const db = require("../database/config")
 
 module.exports = {
@@ -40,13 +39,14 @@ function getUserItems(id) {
 }
 
 function getUserItemById(user_id, item_id) {
-    return db("user_items as i")
-        .innerJoin("users as u", "u.id", "user_items.user_id")
-        .where ({"i.user_id": user_id, 'i.id': item_id})
+    return db("user_items")
+        .innerJoin("users", "users.id", "user_items.user_id")
+        .where({"user_items.user_id": user_id, "user_items.id": item_id})
+        .select("user_items.id", "user_items.name", "user_items.price", "users.location", "users.username")
 }
 
 async function addUserItems(userId, data) {
     const item = {user_id: userId, ...data}
     const [id] = await db("user_items").insert(item)
-        return getUserItems(userId)
+        return getUserItemsById(userId, id)
 }

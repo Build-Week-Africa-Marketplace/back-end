@@ -105,9 +105,16 @@ router.get("/users/:id/items", async (req, res, next) => {
     }
 })
 
-router.get("/users/:user_id/items/:id", async (req, res, next) => {
+router.get("/users/:user_id/items/:item_id", async (req, res, next) => {
     try {
-        res.json(await Users.getUserItemById(req.params.user_id, req.params.id))
+        const item = await Users.getUserItemById(req.params.user_id, req.params.item_id)
+         if (item.length < 1) {
+             return res.status(404).json({
+                 message: "item does not exist"
+             })
+         }
+        return res.status(200).json(...item)
+
     } catch(err) {
         next(err)
     }
