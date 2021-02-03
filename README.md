@@ -17,17 +17,13 @@ https://build-week-africa-marketplace.herokuapp.com/
 | GET    | /user/:id/items/:item_id     |  Gets user item by user id and item id.                                                    |
 | DELETE | /user/:id/items/:item_id     |  Deletes user item by user id and item id.                                                 |
 
-GET all users: /users
-  res: `[
+Users res:
+  `[
     {
       "id": 1,
-      
       "username": "Ash",
-      
       "password": "$2a$10$XJG/IuU3heziRDVt82MuSuIx/IspMLMiUFK0wtFnOjqFdOaGWpNyK",
-      
       "location": "Pallet Town",
-      
       "owner": 1
     },
     {
@@ -45,14 +41,25 @@ GET all users: /users
       "owner": 1
     }]`
 
-GET user by id: /users/:id
-  res:
-    {
-      "id": 1,
-      "username": "Ash",
-      "password": "$2a$10$9ePZoyobbfmFF4ZEFFklPO5nGfUAQBDREMQ1SoNsfsGoJHW3Yof3m",
-      "location": "Pallet Town",
-      "owner": 1
-    }
-
+User items res:
+      `[
+        {
+          "id": 1,
+          "name": "apples",
+          "price": "$0.50",
+          "user_id": 1
+        },
+        {
+          "id": 2,
+          "name": "bananas",
+          "price": "$0.25",
+          "user_id": 2
+        },
+        {
+          "id": 3,
+          "name": "bread",
+          "price": "$1.50",
+          "user_id": 3
+        }
+      ]`
 
