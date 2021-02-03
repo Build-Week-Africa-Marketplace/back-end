@@ -19,6 +19,13 @@ describe("users integration tests", () => {
         expect(res.body[0].username).toBe("Ash")
     })
 
+    it("adds a user", async () => {
+        const res = await supertest(server).post("/register").send({username:"Heather", password: "Heather", location: "Denver", owner: 1})
+        expect(res.statusCode).toBe(201)
+        expect(res.type).toBe("application/json")
+        expect(res.body.username).toBe("Heather")
+    })
+
     it("gets user by id", async () => {
         const res = await supertest(server).get("/users/1")
         expect(res.statusCode).toBe(200)
@@ -32,4 +39,13 @@ describe("users integration tests", () => {
         expect(res.type).toBe("application/json")
         expect(res.body[0].name).toBe("apples")
     })
+
+    it("gets a user's item by item id", async () => {
+        const res = await supertest(server).get("/users/1/items/1")
+        expect(res.statusCode).toBe(200)
+        expect(res.type).toBe("application/json")
+        expect(res.body.id).toBe(1)
+        expect(res.body.name).toBe("apples")
+    })
+
 })
