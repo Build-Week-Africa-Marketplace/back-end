@@ -136,4 +136,20 @@ router.post("/users/:id/items", async (req, res, next) => {
     }
 })
 
+router.delete("/users/:user_id/items/:item_id", async (req, res, next) => {
+    const item = await Users.getUserItemById(req.params.user_id, req.params.item_id)
+         if (item.length < 1) {
+             return res.status(404).json({
+                 message: "item does not exist"
+             })
+         }
+        
+         const deleted = Users.deleteUserItems(req.params.item_id)
+         return res.status(200).json({
+             message: `Item ${req.params.item_id} was successfully deleted.`
+         })
+
+    
+})
+
 module.exports = router
