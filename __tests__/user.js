@@ -40,6 +40,14 @@ describe("users integration tests", () => {
         expect(res.body[0].name).toBe("apples")
     })
 
+    it("adds user item", async () => {
+        const res = await supertest(server).post("/users/1/items").send({name: "cheese", price: "$1"})
+        expect(res.statusCode).toBe(201)
+        expect(res.type).toBe("application/json")
+        expect(res.body.name).toBe("cheese")
+        console.log(res.body)
+    })
+
     it("gets a user's item by item id", async () => {
         const res = await supertest(server).get("/users/1/items/1")
         expect(res.statusCode).toBe(200)

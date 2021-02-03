@@ -128,7 +128,7 @@ router.post("/users/:id/items", async (req, res, next) => {
             })
         }
 
-        const item = await Users.addUserItems(req.params.id, req.body)
+        const item = await Users.addUserItem(req.params.id, req.body)
         return res.status(201).json(...item)
 
     } catch(err) {
