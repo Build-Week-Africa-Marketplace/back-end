@@ -6,7 +6,9 @@ const server = express()
 
 server.use(express.json())
 server.get("/", (req, res) => {
-    res.send("Hello!")
+    res.status(200).json({
+        message: "Welcome to Africa Marketplace API!!!"
+    })
 })
 
 server.use(userRouter)
