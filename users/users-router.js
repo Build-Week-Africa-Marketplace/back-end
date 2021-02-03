@@ -105,4 +105,28 @@ router.get("/users/:id/items", async (req, res, next) => {
     }
 })
 
+router.get("/users/:user_id/items/:id", async (req, res, next) => {
+    try {
+        res.json(await Users.getUserItemById(req.params.user_id, req.params.id))
+    } catch(err) {
+        next(err)
+    }
+})
+
+router.post("/users/:id/items", async (req, res, next) => {
+    try {
+        if (!req.body.name || !req.body.price) {
+            return res.status(400).json({
+                message: "Item name and price required"
+            })
+        }
+
+        const item = Users.addUserItems(req.params.id, req.body)
+        res.status(201).json(item)
+
+    } catch(err) {
+        next(err)
+    }
+})
+
 module.exports = router
