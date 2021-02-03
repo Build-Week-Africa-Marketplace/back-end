@@ -1,6 +1,5 @@
 const express = require("express")
 const Items = require("./items-model")
-const Users = require("./users-model")
 const {restrict} = require("../middleware")
 
 const router = express.Router()
