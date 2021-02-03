@@ -15,6 +15,7 @@ https://build-week-africa-marketplace.herokuapp.com/
 | GET    | /user/:id/items              |  Gets user items by user id.                                                               |
 | POST   | /user/:id/items              |  Adds user item.                                                                           |
 | GET    | /user/:id/items/:item_id     |  Gets user item by user id and item id.                                                    |
+| PUT    | /user/:id/items/:item_id     |  Updates user item by id and item id. Requires req.body of changes.                        |
 | DELETE | /user/:id/items/:item_id     |  Deletes user item by user id and item id.                                                 |
 | GET    | /items                       |  A list of suggested items                                                                 |
 | POST   | /items/location              |  A list of suggested items by location. Req.body: {location: ""} (Could use users location)|
