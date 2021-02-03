@@ -36,7 +36,7 @@ function getUserItems() {
 
 function getUserItemsByUserId(id) {
     return db("user_items as i")
-        .join("users as u", "u.id", "i.user_id")
+        .join("users as u", "i.user_id", "u.id")
+        .where({user_id: id})
         .select("i.id", "i.name", "i.price", "i.location", "u.username")
-        .where("i.user_id", id);
 }

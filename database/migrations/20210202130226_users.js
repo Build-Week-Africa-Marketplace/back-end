@@ -31,13 +31,13 @@ exports.up = async function(knex) {
         table.integer("user_id")
           .notNull()
           .references("id")
-          .inTable("user")
+          .inTable("users")
     })
   };
   
   exports.down = async function(knex) {
     await knex.schema.dropTableIfExists("users")
     await knex.schema.dropTableIfExists("items")
-    await knex.schema.dropTableIfExists("owner's items")
+    await knex.schema.dropTableIfExists("user_items")
   };
   
