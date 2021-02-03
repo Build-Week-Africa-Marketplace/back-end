@@ -88,4 +88,23 @@ router.post("/login", async (req, res, next) => {
     }
 })
 
+router.get("/users/:id", async (req, res, next) => {
+    try {
+        const user = await Users.findById(req.params.id)
+            return res.status(200).json(user)
+    } catch(err) {
+        next(err)
+    }
+})
+
+router.get("/users/:id/items"), async (req, res, next) => {
+    try {
+        const items = await Users.getUserItems(req.params.id)
+            return res.status(200).json(items)
+    } catch(err) {
+        next(err)
+    }
+}
+
+
 module.exports = router

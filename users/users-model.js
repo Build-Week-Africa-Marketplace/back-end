@@ -4,7 +4,8 @@ module.exports = {
     add,
     find,
     findById,
-    findByUsername
+    findByUsername,
+    getUserItems
 }
 
 async function add(user) {
@@ -26,4 +27,11 @@ function findByUsername(username) {
     return db("users")
         .where("username", username)
         .first()
+}
+
+function getUserItems(id) {
+    return db("user_items as i")
+        .join("users as u", "u.id", "i.user_id")
+        .select("i.id", "i.name", "i.price", "i.location", "u.username")
+        .where("i.user_id", id);
 }
