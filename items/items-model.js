@@ -20,9 +20,3 @@ function findByLocation(location) {
     return db("items")
         .where("location", location)
 }
-
-function findByUsersLocation(location) {
-    return db("items")
-        .innerJoin("users", "users.location", "items.location")
-        .where("items.location", location)
-}

@@ -6,9 +6,10 @@ module.exports = {
     findById,
     findByUsername,
     getUserItems,
-    addUserItems,
+    addUserItem,
     getUserItemById,
-    deleteUserItems
+    updateUserItem,
+    deleteUserItem
 }
 
 async function add(user) {
@@ -46,13 +47,19 @@ function getUserItemById(user_id, item_id) {
         .select("user_items.id", "user_items.name", "user_items.price", "users.location", "users.username")
 }
 
-async function addUserItems(userId, item) {
+async function addUserItem(userId, item) {
     const data = {user_id: userId, ...item}
     const [id] = await db("user_items").insert(data)
     return getUserItemById(userId, id)
 }
 
-async function deleteUserItems(id) {
+async function updateUserItem(id, changes) {
+        return db("user_items")
+            .where({id})
+            .update(changes)
+}
+
+async function deleteUserItem(id) {
     return db("user_items")
         .where("id", id)
         .del()
