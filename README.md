@@ -7,14 +7,14 @@ https://build-week-africa-marketplace.herokuapp.com/
 # Endpoints
 
 | Method | Endpoint                     | Description                                                                                                                                                                 |
-| ------ | ---------------------------- | -----------------------------------------------------------------------------------------------------|
-| POST   | /register                    |                                                                                                      |
-| POST   | /login                       |                                                                                                      |
-| GET    | /users                       |                                                                                                      |
-| GET    | /users/:id                   |                                                                                                      |
-| GET    | /user/:id/items              |                                                                                                      |
-| POST   | /user/:id/items              |                                                                                                      |
-| GET    | /user/:id/items/:item_id     |                                                                                                      |
+| ------ | ---------------------------- | -------------------------------------------------------------------------------------------|
+| POST   | /register                    |  Creates new users. Req.body: {username: "", password: "", location: "", owner: bool}      |
+| POST   | /login                       |                                                                                            |
+| GET    | /users                       |                                                                                            |
+| GET    | /users/:id                   |                                                                                            |
+| GET    | /user/:id/items              |                                                                                            |
+| POST   | /user/:id/items              |                                                                                            |
+| GET    | /user/:id/items/:item_id     |                                                                                            |
 
 POST register: /register
   req.body: {username: "", password: "", location: "", owner: bool}
