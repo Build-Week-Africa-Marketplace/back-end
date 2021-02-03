@@ -16,6 +16,9 @@ https://build-week-africa-marketplace.herokuapp.com/
 | POST   | /user/:id/items              |  Adds user item.                                                                           |
 | GET    | /user/:id/items/:item_id     |  Gets user item by user id and item id.                                                    |
 | DELETE | /user/:id/items/:item_id     |  Deletes user item by user id and item id.                                                 |
+| GET    | /items                       |  A list of suggested items                                                                 |
+| POST   | /items/location              |  A list of suggested items by location. Req.body: {location: ""} (Could use users location)|
+| GET    | /items/:id                   |  Gets suggested item by id. (Could be used along with add user item)                       |
 
 Users res:
   `[
@@ -62,4 +65,38 @@ User items res:
           "user_id": 3
         }
       ]`
+      
+ Suggested items res: 
+      `[
+  {
+    "id": 1,
+    "name": "apples",
+    "price": "$0.50",
+    "location": "Pallet Town"
+  },
+  {
+    "id": 2,
+    "name": "bananas",
+    "price": "$0.25",
+    "location": "Pallet Town"
+  },
+  {
+    "id": 3,
+    "name": "bread",
+    "price": "$1.50",
+    "location": "Cerulean City"
+  },
+  {
+    "id": 4,
+    "name": "milk",
+    "price": "$2.00",
+    "location": "Cerulean City"
+  },
+  {
+    "id": 5,
+    "name": "eggs",
+    "price": "1.25",
+    "location": "Pewter City"
+  }
+]`
 
