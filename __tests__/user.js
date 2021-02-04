@@ -45,7 +45,6 @@ describe("users integration tests", () => {
         expect(res.statusCode).toBe(201)
         expect(res.type).toBe("application/json")
         expect(res.body.name).toBe("cheese")
-        console.log(res.body)
     })
 
     it("gets a user's item by item id", async () => {
